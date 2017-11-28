@@ -9,8 +9,8 @@
 							http://www.springframework.org/schema/context
 							http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean	id="hellpController"
-			class="hello.controller.HelloController" />
+	<bean	id="hellpController"	class="hello.controller.HelloController" />
+		
 			
 	<bean	id="viewResolver"
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -19,18 +19,34 @@
 	</bean>
 
 
-
-	
-	<bean	id="newArticleController"
-			class="article.controller.NewArticleController"
+	<bean	id="newArticleController"	class="article.controller.NewArticleController"
 			p:articleService-ref="articleService" />
-			
-	<bean	id="articleService"
-			class="article.service.ArticleService" />
-			
-			
-			
-			
+	<bean	id="articleService"			class="article.service.ArticleService" />
+		
+	
 	<bean	class="order.controller.OrderController"/>
 
+
+	<bean	id="searchController"	class="search.controller.SearchController"/>
+			
+	
+	<bean	id="cookieController"	class="cookie.controller.CookieController"/>
+			
+	
+	<bean	id="headerController"	class="header.controller.HeaderController"/>
+	
+	
+	<bean	id="gameSearchController"	class="gameSearch.controller.GameSearchController"
+			p:searchService-ref="searchService" />
+	<bean	id="searchService"			class="gameSearch.service.SearchService" />
+	
+	
+	<bean	id="createAccountController"	class="account.controller.CreateAccountController"/>
+	<bean	id="messageSource"				class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
 </beans>

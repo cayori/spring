@@ -71,4 +71,21 @@
 	
 	<bean	id="multipartResolver"	class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 	<bean	id="reportSubmissionController"	class="_11_submission.controller.ReportSubmissionController" />
+	
+	
+	<bean class="_12_initBinder.queryLog.controller.QueryLogController"/>
+	
+	
+	<bean class="_13_interceptor.event.controller.EventController" />
+	
+	
+	<bean	class="_14_exception.arithmetic.ArithmethicOperatorController" />
+	<bean	class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.ArithmeticException">error/mathException</prop>
+				<prop key="java.lang.Exception">error/exception</prop>
+			</props>
+		</property>
+	</bean>
 </beans>
